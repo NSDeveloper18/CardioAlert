@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  CardioAlert
+
+  Created by Shakhzod Botirov on 21/09/24.
+  
+*/
+
+"settings" = "Sozlamalar";
+"dark" = "Tungi rejim";
+"editLanguage" = "Tilni o'zgartirish";
+"existing" = "Yaratilgan";
+"new" = "Yangi";
+"enterEmail" = "Elektron pochta";
+"password" = "Parol";
+"forgotPassword" = "Parolni unutdingizmi?";
+"re-enter" = "Qayta kiriting";
+"signIn" = "Kirish";
+"signUp" = "Ro'yhatdan o'tish";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";

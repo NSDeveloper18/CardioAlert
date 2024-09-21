@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  CardioAlert
+
+  Created by Shakhzod Botirov on 21/09/24.
+  
+*/
+
+"settings" = "Settings";
+"dark" = "Dark mode";
+"editLanguage" = "Edit language";
+"existing" = "Existing";
+"new" = "New";
+"enterEmail" = "Enter Email Address";
+"password" = "Password";
+"forgotPassword" = "Forgot Password?";
+"re-enter" = "Re-Enter";
+"signIn" = "Login";
+"signUp" = "Sign up";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
