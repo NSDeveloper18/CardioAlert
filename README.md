@@ -60,3 +60,6 @@ UML-диаграмма:
 
 
 ![telegram-cloud-photo-size-2-5438355064587674819-y](https://github.com/user-attachments/assets/4f18d144-74a6-49b6-9172-bfb5675fc7af)
+
+![telegram-cloud-photo-size-2-5438355064587674829-y](https://github.com/user-attachments/assets/276b52ce-65cf-440a-a57a-8f13326cd9c1)
+
