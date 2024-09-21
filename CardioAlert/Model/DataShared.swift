@@ -11,7 +11,9 @@ import PhotosUI
 class DataShared: ObservableObject {
     static let shared = DataShared()
     
-    @Published var view = "auth"
+    @AppStorage("view") var view = "auth"
     @Published var language = "en"
     @Published var languageSheet = false
+    @Published var showConnection = false
+    @AppStorage("forTPMI") var forTPMI = false
 }

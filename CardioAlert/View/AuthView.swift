@@ -153,6 +153,9 @@ struct AuthView: View {
                     Spacer()
                     Button(action: {
                         // Login action
+                        withAnimation {
+                            datas.view = "home"
+                        }
                     }) {
                         HStack {
                             Spacer()

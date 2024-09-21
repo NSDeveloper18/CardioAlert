@@ -13,7 +13,7 @@ struct ViewController: View {
         VStack {
             switch datas.view {
             case "auth": AuthView()
-                
+            case "home": HomeView()
                 
                 
             default: AuthView()
