@@ -17,13 +17,16 @@ struct AuthView: View {
     @State private var reEnterPassword = ""
     var body: some View {
         ZStack {
-            Image("settingsBack")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-                .onTapGesture {
-                    hideKeyboard()
-                }
+            ScrollView(.vertical) {
+                Image("settingsBack")
+                    .resizable()
+                    .scaledToFill()
+                    .onTapGesture {
+                        hideKeyboard()
+                    }
+            }
+            .edgesIgnoringSafeArea(.all)
+            .scrollDisabled(true)
             
             VStack(spacing: 0) {
                 // Heart Icon and Background Elements
@@ -155,7 +158,7 @@ struct AuthView: View {
             .padding(.bottom, 50)
             .background(Color(.systemGray6))
             .cornerRadius(20)
-            .padding(.horizontal, 32)
+            .padding(.horizontal, 16)
             .overlay() {
                 VStack {
                     Spacer()
@@ -258,7 +261,7 @@ struct AuthView: View {
             .padding(.bottom, 50)
             .background(Color(.systemGray6))
             .cornerRadius(20)
-            .padding(.horizontal, 32)
+            .padding(.horizontal, 16)
             .overlay() {
                 VStack {
                     Spacer()

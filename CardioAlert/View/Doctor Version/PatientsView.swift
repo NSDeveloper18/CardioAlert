@@ -108,6 +108,7 @@ struct PatientsView: View {
                         Image(systemName: "chevron.left")
                             .foregroundStyle(Color(.white))
                             .font(.system(size: 20))
+                            .frame(width: 30,height: 30)
                     }
                     
                     Spacer()

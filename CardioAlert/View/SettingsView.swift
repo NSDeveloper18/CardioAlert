@@ -14,13 +14,16 @@ struct SettingsView: View {
     @FocusState var isKeyboardFocused: Bool
     var body: some View {
         ZStack {
-            Image("settingsBack")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-                .onTapGesture {
-                    hideKeyboard()
-                }
+            ScrollView(.vertical) {
+                Image("settingsBack")
+                    .resizable()
+                    .scaledToFill()
+                    .onTapGesture {
+                        hideKeyboard()
+                    }
+            }
+            .edgesIgnoringSafeArea(.all)
+            .scrollDisabled(true)
             
             VStack {
                 HStack {
@@ -33,6 +36,7 @@ struct SettingsView: View {
                             .foregroundStyle(Color(.white))
                             .font(.system(size: 20))
                             .padding(.leading, 16)
+                            .frame(width: 30,height: 30)
                     }
                     
                     Spacer()
@@ -51,7 +55,6 @@ struct SettingsView: View {
                             .padding(.trailing, 16)
                     }
                 }
-                .padding(.horizontal, 16)
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 0) {
@@ -109,7 +112,7 @@ struct SettingsView: View {
                     .background(.white)
                     .cornerRadius(16)
                     .shadow(color: Color(.black).opacity(0.3),radius: 5)
-                    .padding(.horizontal, 40)
+                    .padding(.horizontal, 16)
                     .padding(.top, 30)
                     .onTapGesture {
                         hideKeyboard()
@@ -208,7 +211,7 @@ struct SettingsView: View {
                     .background(.white)
                     .cornerRadius(16)
                     .shadow(color: Color(.black).opacity(0.3),radius: 5)
-                    .padding(.horizontal, 40)
+                    .padding(.horizontal, 16)
                     .padding(.top, 20)
                     .onTapGesture {
                         hideKeyboard()
@@ -314,7 +317,7 @@ struct SettingsView: View {
                     .background(.white)
                     .cornerRadius(16)
                     .shadow(color: Color(.black).opacity(0.3),radius: 5)
-                    .padding(.horizontal, 40)
+                    .padding(.horizontal, 16)
                     .padding(.top, 20)
                     .onTapGesture {
                         hideKeyboard()

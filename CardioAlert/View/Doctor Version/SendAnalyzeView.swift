@@ -22,13 +22,17 @@ struct SendAnalyzeView: View {
     
     var body: some View {
         ZStack {
-            Image("settingsBack")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-                .onTapGesture {
-                    hideKeyboard()
-                }
+            ScrollView(.vertical) {
+                Image("settingsBack")
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        hideKeyboard()
+                    }
+            }
+            .edgesIgnoringSafeArea(.all)
+            .scrollDisabled(true)
             
             VStack {
                 HStack {
@@ -41,6 +45,7 @@ struct SendAnalyzeView: View {
                             .foregroundStyle(Color(.white))
                             .font(.system(size: 20))
                             .padding(.leading, 16)
+                            .frame(width: 30,height: 30)
                     }
                     
                     Spacer()
@@ -59,7 +64,6 @@ struct SendAnalyzeView: View {
                             .padding(.trailing, 16)
                     }
                 }
-                .padding(.horizontal, 16)
                 
                 VStack(spacing: 0) {
                     HStack(spacing: 8) {
@@ -214,7 +218,7 @@ struct SendAnalyzeView: View {
                 .background(.white)
                 .cornerRadius(16)
                 .shadow(color: Color(.black).opacity(0.3),radius: 5)
-                .padding(.horizontal, 40)
+                .padding(.horizontal, 16)
                 .padding(.top, 20)
                 .onTapGesture {
                     hideKeyboard()
@@ -267,7 +271,7 @@ struct SendAnalyzeView: View {
                         .background(Color(.systemGray6))
                         .cornerRadius(14)
                         .shadow(color: Color(.black).opacity(0.2), radius: 2, y: 2)
-                        .padding(.horizontal, 32)
+                        .padding(.horizontal, 16)
                         .padding(.bottom, 16)
                     }
                 }
@@ -276,7 +280,7 @@ struct SendAnalyzeView: View {
             LargeImageView()
                 .scaleEffect(self.datas.showLargeImage ? 1.0 : 0.0)
         }
-        
+        .ignoresSafeArea(.keyboard)
         .onChange(of: datas.ImageItemECG9) { _ in
             Task {
                 if let data = try? await datas.ImageItemECG9?.loadTransferable(type: Data.self) {
