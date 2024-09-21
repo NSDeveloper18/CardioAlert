@@ -57,4 +57,5 @@ https://colab.research.google.com/drive/1HPXZd-2h2DyXIfdkrVoNkyV0P14aG7JG?usp=sh
 
 Источники данных: Для обучения нейронной сети база данных была собрана при сотрудничестве с кардиологами из Семашко
 
+UML-диаграмма:
 ![telegram-cloud-photo-size-2-5438355064587674819-y](https://github.com/user-attachments/assets/4f18d144-74a6-49b6-9172-bfb5675fc7af)
