@@ -23,17 +23,18 @@ struct SourceEKG: View {
                 {
                     VStack {
                         Image(systemName: "\(texts.nomber).circle")
-                            .foregroundColor(.blue)
+                            .foregroundColor(Color(.systemGray6))
                             .font(.system(size: 30))
                         Text("source".localized(language))
+                            .foregroundColor(Color(.systemGray6))
                             .padding(1)
+                            .underline()
                     }
                     .padding(2)
                 }
                 
             }
         }
-        .background(Color("background").ignoresSafeArea())
     }
 }
 

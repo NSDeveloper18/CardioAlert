@@ -16,97 +16,105 @@ struct AuthView: View {
     @State private var password = ""
     @State private var reEnterPassword = ""
     var body: some View {
-        VStack(spacing: 0) {
-            // Heart Icon and Background Elements
-            Image("icon")
+        ZStack {
+            Image("settingsBack")
                 .resizable()
-                .scaledToFit()
-                .frame(height: 150)
-
-            Spacer()
-            
-            HStack {
-                ZStack {
-                    HStack {
-                        Spacer()
-                    }
-                    .frame(width: (UIScreen.main.bounds.width - 50) / 2, height: 38)
-                    .background(Color(.white))
-                    .clipShape(Capsule())
-                    .offset(x: isExistingUser ? -90 : 90)
-                    
-                    HStack {
-                        Button {
-                            withAnimation {
-                                isExistingUser = true
-                            }
-                            
-                        } label: {
-                            Text("existing".localized(language))
-                                .foregroundStyle(isExistingUser ? Color.black : Color.white)
-                                .font(.system(size: 15).weight(.bold))
-                                .padding(.vertical, 10)
-                                .frame(width: (UIScreen.main.bounds.width - 50) / 2)
-                        }
-//                        .background(isExistingUser ? Color(.white) : Color.clear)
-                        .frame(height: 40)
-                        .clipShape(Capsule())
-                        
-                        
-                        Button {
-                            withAnimation {
-                                isExistingUser = false
-                            }
-                        } label: {
-                            Text("new".localized(language))
-                                .foregroundStyle(!isExistingUser ? Color.black : Color.white)
-                                .font(.system(size: 15).weight(.bold))
-                                .padding(.vertical, 10)
-                                .frame(width: (UIScreen.main.bounds.width - 50) / 2)
-                        }
-//                        .background(!isExistingUser ? Color(.white) : Color.clear)
-                        .frame(height: 40)
-                        .clipShape(Capsule())
-                    }
-                    
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+                .onTapGesture {
+                    hideKeyboard()
                 }
-            }
-            .background(Color.black.opacity(0.1))
-            .clipShape(Capsule())
             
-            // Form based on the picker selection
-            VStack {
-                if isExistingUser {
-                    existingUserForm
-                } else {
-                    newUserForm
-                }
-            }
-            .frame(height: 300)
-            .padding(.top, 16)
-            
-            Spacer()
-            if !isKeyboardFocused {
+            VStack(spacing: 0) {
+                // Heart Icon and Background Elements
+                Image("icon")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 150)
+                
+                Spacer()
+                
                 HStack {
-                    Button {
-                        datas.languageSheet.toggle()
-                    } label: {
+                    ZStack {
                         HStack {
-                            
-                            Image(systemName: "globe")
-                                .foregroundStyle(Color(.white))
-                            
-                            Text("editLanguage".localized(language))
-                                .foregroundStyle(Color(.white))
+                            Spacer()
                         }
+                        .frame(width: (UIScreen.main.bounds.width - 50) / 2, height: 40)
+                        .background(Color(.systemGray6))
+                        .clipShape(Capsule())
+                        .offset(x: isExistingUser ? -92 : 92)
+                        
+                        HStack {
+                            Button {
+                                withAnimation {
+                                    isExistingUser = true
+                                }
+                                
+                            } label: {
+                                Text("existing".localized(language))
+                                    .foregroundStyle(isExistingUser ? Color.black : Color.white)
+                                    .font(.system(size: 15).weight(.bold))
+                                    .padding(.vertical, 10)
+                                    .frame(width: (UIScreen.main.bounds.width - 50) / 2)
+                            }
+                            .frame(height: 40)
+                            .clipShape(Capsule())
+                            
+                            
+                            Button {
+                                withAnimation {
+                                    isExistingUser = false
+                                }
+                            } label: {
+                                Text("new".localized(language))
+                                    .foregroundStyle(!isExistingUser ? Color.black : Color.white)
+                                    .font(.system(size: 15).weight(.bold))
+                                    .padding(.vertical, 10)
+                                    .frame(width: (UIScreen.main.bounds.width - 50) / 2)
+                            }
+                            .frame(height: 40)
+                            .clipShape(Capsule())
+                        }
+                        
                     }
                 }
-                .padding(.horizontal, 16)
+                .background(Color.black.opacity(0.2))
+                .clipShape(Capsule())
+                
+                // Form based on the picker selection
+                VStack {
+                    if isExistingUser {
+                        existingUserForm
+                    } else {
+                        newUserForm
+                    }
+                }
+                .frame(height: 300)
+                .padding(.top, 16)
+                
+                Spacer()
+                if !isKeyboardFocused {
+                    HStack {
+                        Button {
+                            datas.languageSheet.toggle()
+                        } label: {
+                            HStack {
+                                
+                                Image(systemName: "globe")
+                                    .foregroundStyle(Color(.white))
+                                
+                                Text("editLanguage".localized(language))
+                                    .foregroundStyle(Color(.white))
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                }
             }
-        }
-        .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
-        .onTapGesture {
-            hideKeyboard()
+//            .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
+            .onTapGesture {
+                hideKeyboard()
+            }
         }
     }
     
@@ -145,9 +153,9 @@ struct AuthView: View {
             }
             .padding(.top, 16)
             .padding(.bottom, 50)
-            .background(.white)
+            .background(Color(.systemGray6))
             .cornerRadius(20)
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 32)
             .overlay() {
                 VStack {
                     Spacer()
@@ -168,7 +176,7 @@ struct AuthView: View {
                         .frame(height: 50)
                         .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.pink]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(12)
-                        .padding(.horizontal, 50)
+                        .padding(.horizontal, 70)
                         .shadow(color: Color(.black).opacity(0.2), radius: 4, x: 0, y: -3)
                     }
                 }
@@ -180,7 +188,8 @@ struct AuthView: View {
             }) {
                 Text("forgotPassword".localized(language))
                     .font(.system(size: 16).weight(.semibold))
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(.systemGray2))
+                    .underline()
             }
             .padding(.top, 40)
             
@@ -240,9 +249,9 @@ struct AuthView: View {
             }
             .padding(.top, 16)
             .padding(.bottom, 50)
-            .background(.white)
+            .background(Color(.systemGray6))
             .cornerRadius(20)
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 32)
             .overlay() {
                 VStack {
                     Spacer()
@@ -260,7 +269,7 @@ struct AuthView: View {
                         .frame(height: 50)
                         .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.pink]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(12)
-                        .padding(.horizontal, 50)
+                        .padding(.horizontal, 70)
                         .shadow(color: Color(.black).opacity(0.2), radius: 4, x: 0, y: -3)
                     }
                 }

@@ -17,10 +17,12 @@ struct ViewController: View {
             case "settings": SettingsView()
             case "ecg": HomeECGView()
             case "checkEcg": SelfCheckECGView()
+            case "locations": LocationsEKG()
                 
             default: AuthView()
             }
         }
+        .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
         .preferredColorScheme(.light)
         .sheet(isPresented: $datas.languageSheet) {
             if #available(iOS 16.4, *) {

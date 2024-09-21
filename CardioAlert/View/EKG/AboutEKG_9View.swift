@@ -53,6 +53,7 @@ struct AboutEKG_9View: View {
                     .multilineTextAlignment(.leading)
                 
                 SourceEKG()
+                    .padding(.top)
                 
                 Spacer()
             }

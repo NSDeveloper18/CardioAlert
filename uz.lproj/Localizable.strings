@@ -19,13 +19,33 @@
 "signUp" = "Ro'yhatdan o'tish";
 "this_is_test" = "Ushbu test to'liq tashxis emas. Natijalar faqat ma'lumot olish uchun mo'ljallangan va malakali tibbiy tashxisni tashkil etmaydi.\nAniq tashxislar uchun shifokor bilan maslahatlashishingiz kerak!";
 "upload_real_photo_ecg_9" = "1. 9-sinf yurak kasalliklarini tashxislash uchun EKG tasvirlarining tasnifi.\n2. 88% aniqlik bilan kompyuterni ko'rish usuli qo'llaniladi.\n3. EKG tasvirini yuklang va natijani oling.";
+
+//MARK: Source View
+"source" = "Manba";
 "" = "";
 "" = "";
 "" = "";
 "" = "";
 "" = "";
 "" = "";
-"" = "";
+
+//MARK: Location View
+"locationsTitle" = "Markazlar";
+"map" = "Xarita";
+"distance_from_you" = "Sizdan bu yergacha masofa";
+"km" = "km";
+
+//MARK: Lokations name
+"location_1" = "Akfa medline";
+"address_1" = "Kichik xalqa yo'li ko'chasi, 5А";
+"location_2" = "Emu clinic";
+"address_2" = "Muqimiy ko'chasi ko'chasi, 7";
+"location_3" = "Hayat Medical Centre";
+"address_3" = "Mevazor ko'chasi, 5/14";
+"location_4" = "Horev Medical Center";
+"address_4" = "Maxtumquli ko'chasi, 105";
+"location_5" = "Medion Clinic";
+"address_5" = "Zulfiya xonim ko'chasi, 18";
 
 //MARK: Response ECG9
 "class-0" = "Q bo'lmagan old yon devor infarkti";

@@ -31,13 +31,32 @@
 "change" = "Change";
 "select" = "Select";
 
+//MARK: Source View
+"source" = "Source";
 "" = "";
 "" = "";
 "" = "";
 "" = "";
 "" = "";
 "" = "";
-"" = "";
+
+//MARK: Location View
+"locationsTitle" = "Medical centers";
+"map" = "Map";
+"distance_from_you" = "Distance from you to here";
+"km" = "km";
+
+//MARK: Lokations name
+"location_1" = "Akfa medline";
+"address_1" = "Tashkent, Kichik xalqa Yuli street, 5A";
+"location_2" = "Emu clinic";
+"address_2" = "str. 10 Mukimiy";
+"location_3" = "Hayat Medical Centre";
+"address_3" = "str. Mevazor 5/14";
+"location_4" = "Horev Medical Center";
+"address_4" = "str. Mahtumquli 105";
+"location_5" = "Medion Clinic";
+"address_5" = "str. Zulfiyahanum, 18";
 
 //MARK: Response ECG9
 "class-0" = "Anterior lateral wall infarction without Q";

@@ -18,6 +18,11 @@ struct SelfCheckECGView: View {
     var language = LocalizationService.shared.language
     var body: some View {
         ZStack {
+            Image("settingsBack")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
+            
             VStack {
                 HStack {
                     Button {
@@ -46,9 +51,10 @@ struct SelfCheckECGView: View {
                     VStack {
                         if datas.ImagePickECG9 == Image("photoEx") {
                             Text("upload_photo".localized(language))
-                                .foregroundColor(Color(hex: "d91c30"))
+                                .foregroundColor(Color(.systemGray6))
                                 .fontWeight(.semibold)
-                                .font(.system(size: 16))
+                                .font(.system(size: 18))
+                            
                             ZStack {
                                 datas.ImagePickECG9
                                     .resizable()
@@ -58,14 +64,16 @@ struct SelfCheckECGView: View {
                             .scaledToFit()
                             .frame(width: 220)
                             .padding(2)
-                            .background(Color(hex: "d91c30").opacity(0.6))
+                            .background(Color(.systemGray3))
                             .cornerRadius(10)
+                            .shadow(color: Color(.red).opacity(0.3), radius: 2, y: 2)
                         }
                         else {
                             Text("selected_photo".localized(language))
                                 .foregroundColor(Color(hex: "d91c30"))
                                 .fontWeight(.semibold)
                                 .font(.system(size: 16))
+                            
                             ZStack {
                                 datas.ImagePickECG9
                                     .resizable()
@@ -94,93 +102,106 @@ struct SelfCheckECGView: View {
                     }
                     
                     Image(systemName: "arrowshape.up")
-                        .foregroundColor(Color(hex: "d91c30"))
-                        .padding(.top, 5)
+                        .foregroundColor(Color(hex: "#ff646c"))
+                        .padding(.top, 8)
                         .font(.title2)
                     
                     Text("upload_real_photo_ecg_9".localized(language))
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                         .font(.system(size: 14))
-                        .multilineTextAlignment(.center)
-                        .padding(8)
-                        .background(Color(hex: "d91c30").opacity(1.0))
-                        .cornerRadius(10)
+                        .multilineTextAlignment(.leading)
+                        .padding(12)
+                        .background(.white)
+                        .cornerRadius(16)
+                        .shadow(color: Color(.black).opacity(0.3),radius: 5)
                         .padding()
                     
                     Spacer()
                     
-                    VStack(spacing: 2) {
-                        HStack(spacing: 2) {
-                            HStack {
+                    VStack(spacing: 0) {
+                        PhotosPicker(selection: $datas.ImageItemECG9, matching: .images) {
+                            HStack(spacing: 8) {
                                 Image("folder")
-                                    .renderingMode(.template)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 20)
-                                    .foregroundStyle(.white)
-                                PhotosPicker(selection: $datas.ImageItemECG9, matching: .images) {
-                                    Text("select_photo".localized(language))
-                                        .fixedSize(horizontal: true, vertical: false)
-                                }
-                            }
-                            .padding()
-                            .background(Color(hex: "d91c30"))
-                            .foregroundColor(.white)
-                            .cornerRadius(15, corners: [.topLeft])
-                            
-                            Button {
-                                if datas.ImagePickECG9 == Image("photoEx") {
-                                    pickPicture.toggle()
-                                }
-                                else {
-                                    pickPicture = false
-                                    datas.waiting = true
-                                    PhotoUpload.uploadImageToServer()
-                                }
-                            } label: {
-                                HStack {
-                                    Spacer()
-                                    Image("magnify")
-                                        .renderingMode(.template)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 20)
-                                        .foregroundStyle(.white)
-                                    Text("get_result".localized(language))
-                                        .fixedSize(horizontal: true, vertical: false)
-                                        .foregroundColor(.white)
-                                    Spacer()
-                                }
-                                .padding()
-                                .background(Color(hex: "d91c30"))
-                                .foregroundColor(.black)
-                                .cornerRadius(15, corners: [.topRight])
+                                    .frame(width: 22, height: 20)
                                 
+                                Text("select_photo".localized(language))
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                    .fixedSize(horizontal: true, vertical: false)
                                 
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(Color(.systemGray))
+                                    .font(.system(size: 16))
                             }
                         }
+                        .frame(height: 40)
+                        
+                        Divider()
+                        
+                        Button {
+                            if datas.ImagePickECG9 == Image("photoEx") {
+                                pickPicture.toggle()
+                            }
+                            else {
+                                pickPicture = false
+                                datas.waiting = true
+                                PhotoUpload.uploadImageToServer()
+                            }
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image("magnify")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 22, height: 20)
+                                
+                                Text("get_result".localized(language))
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(Color(.systemGray))
+                                    .font(.system(size: 16))
+                            }
+                        }
+                        .frame(height: 40)
+                        
+                        Divider()
                         
                         Button {
                             showAbout.toggle()
                         } label: {
-                            HStack {
-                                Spacer()
+                            HStack(spacing: 8) {
                                 Image("info")
-                                    .renderingMode(.template)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 20)
-                                    .foregroundStyle(.white)
+                                    .frame(width: 22, height: 20)
+                                
                                 Text("about_ekg_title9".localized(language))
-                                    .foregroundColor(.white)
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                
                                 Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(Color(.systemGray))
+                                    .font(.system(size: 16))
                             }
-                            .padding()
-                            .background(Color(hex: "d91c30"))
-                            .cornerRadius(15, corners: [.bottomRight, .bottomLeft])
                         }
+                        .frame(height: 40)
                     }
-                    .padding()
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(.white)
+                    .cornerRadius(16)
+                    .shadow(color: Color(.black).opacity(0.3),radius: 5)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 20)
                     
                 }
                 
@@ -216,8 +237,7 @@ struct SelfCheckECGView: View {
                         .multilineTextAlignment(.leading)
                 })
             }
-            .padding(.horizontal, 16)
-            .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
+            .padding(.horizontal, 32)
             
             LargeImageView()
                 .scaleEffect(self.datas.showLargeImage ? 1.0 : 0.0)

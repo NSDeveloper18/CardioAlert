@@ -26,119 +26,77 @@ struct HomeView: View {
             Item(img: "cardioIcon", txt: "CardioMegalia", view: "cardio"),
             Item(img: "settings", txt: "Settings", view: "settings"),
         ]
-        VStack {
+        ZStack {
+            Image("settingsBack")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
             
-            HStack {
-                Button {
-                    withAnimation {
-                        datas.view = "auth"
-                    }
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundStyle(Color(.white))
-                        .font(.system(size: 20))
+            VStack {
+                
+                HStack {
+                    Spacer()
+                    Image("icon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 150)
+                    Spacer()
                 }
                 
                 Spacer()
                 
-                Button {
-                    
-                } label: {
-                    Text("")
-                }
-            }
-            .padding(.horizontal, 16)
-            
-            HStack {
+                Text("this_is_test".localized(language))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(Color(hex: "880808"))
+                    .fontWeight(.semibold)
+                    .padding(.horizontal)
+                    .offset(y: 20)
+                
                 Spacer()
-                Image("icon")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 150)
-                Spacer()
-            }
-            
-            Spacer()
-            
-            Text("this_is_test".localized(language))
-                .multilineTextAlignment(.center)
-                .foregroundColor(Color(.white))
-                .fontWeight(.semibold)
-                .padding(.horizontal)
-            
-            Spacer()
-            
-            CardStack(items, currentIndex: $currentIndex) { namedItems in
-                Button {
-                    withAnimation {
-                        datas.view = namedItems.view
-                    }
-                } label: {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(Color(hex: "#FEAE96"))
-                            .frame(width: 300, height: 260)
-                            .shadow(color: Color.black.opacity(0.6), radius: 5)
-                        
-                        VStack {
-                            Spacer()
+                
+                CardStack(items, currentIndex: $currentIndex) { namedItems in
+                    Button {
+                        withAnimation {
+                            datas.view = namedItems.view
+                        }
+                    } label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color(hex: "#ff646c"))
+                                .frame(width: 300, height: 260)
+                                .shadow(color: Color.black.opacity(0.6), radius: 5)
                             
-                            Image("\(namedItems.img)")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 180)
-                            
-                            Spacer()
-                            
-                            Text(namedItems.txt.localized(language))
-                                .font(.title2)
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                                .padding(.bottom, 10)
+                            VStack {
+                                Spacer()
+                                
+                                Image("\(namedItems.img)")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 180)
+                                
+                                Spacer()
+                                
+                                Text(namedItems.txt.localized(language))
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .padding(.bottom, 10)
+                            }
                         }
                     }
+                    .buttonStyle(MyButtonStyle())
                 }
-                .buttonStyle(MyButtonStyle())
+                .frame(height: 220)
+                Spacer()
+                    .alert("check_internet_connection".localized(language), isPresented: $datas.showConnection) {
+                        Button("ok".localized(language), role: .cancel, action: {   })
+                    }
+                
             }
-            .frame(height: 220)
-            Spacer()
-                .alert("check_internet_connection".localized(language), isPresented: $datas.showConnection) {
-                    Button("ok".localized(language), role: .cancel, action: {   })
-                }
-            
+            // .padding(.horizontal)
+//            .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
         }
-        // .padding(.horizontal)
-        .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
         .onAppear()  {
-            //                data.gender = 2
-            //                data.polyuria = 2
-            //                data.polydipsia = 2
-            //                data.weightLoss = 2
-            //                data.weakness = 2
-            //                data.polyphagia = 2
-            //                data.genitalThrush = 2
-            //                data.visualBlur = 2
-            //                data.zud = 2
-            //                data.irritability = 2
-            //                data.delayedHealing = 2
-            //                data.partialParesis = 2
-            //                data.muscleWeakness = 2
-            //                data.alopecia = 2
-            //                data.obesity = 2
-            //
-            //                data.weightF = 0
-            //                data.heightF = 0
-            //                data.taliiF = 0
-            //                data.physicalActivityF = 2
-            //                data.eatVegetablesF = 2
-            //                data.takeDrugsF = 2
-            //                data.glukoseIncreaseF = 2
-            //                data.diabetOnFamilyF = 2
-            //
-            //                data.showResultDiabet = false
-            //                data.showResultFindRisk = false
-            //                data.showResultPhotoPick = false
-            
             monitor.pathUpdateHandler = { [self] path in
                 if path.status == .satisfied {
                     DispatchQueue.main.async { [self] in

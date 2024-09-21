@@ -33,7 +33,7 @@ struct LargeImageView: View {
                             .font(.title)
                     })
                 }
-                .padding(.horizontal)
+                .padding(.horizontal, 32)
                 Spacer()
             }
         }

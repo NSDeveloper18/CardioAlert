@@ -11,6 +11,7 @@ struct SettingsView: View {
     @ObservedObject var datas: DataShared = .shared
     var language = LocalizationService.shared.language
     @State var isDatePickerPresented = false
+    @FocusState var isKeyboardFocused: Bool
     var body: some View {
         ZStack {
             Image("settingsBack")
@@ -52,262 +53,278 @@ struct SettingsView: View {
                 }
                 .padding(.horizontal, 16)
                 
-//                Spacer()
-                
-                VStack(spacing: 0) {
-                    Button {
-                        datas.languageSheet.toggle()
-                    } label: {
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: 0) {
+                        Button {
+                            datas.languageSheet.toggle()
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image(systemName: "globe")
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                    .frame(width: 25)
+                                
+                                Text("Language")
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(Color(.systemGray))
+                                    .font(.system(size: 16))
+                            }
+                        }
+                        .frame(height: 40)
+                        
+                        Divider()
+                        
+                        Button {
+                            withAnimation {
+                                datas.view = "auth"
+                            }
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image(systemName: "rectangle.portrait.and.arrow.right")
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                    .frame(width: 25)
+                                
+                                Text("Exit")
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(Color(.systemGray))
+                                    .font(.system(size: 16))
+                            }
+                        }
+                        .frame(height: 40)
+                        
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(.white)
+                    .cornerRadius(16)
+                    .shadow(color: Color(.black).opacity(0.3),radius: 5)
+                    .padding(.horizontal, 40)
+                    .padding(.top, 30)
+                    .onTapGesture {
+                        hideKeyboard()
+                    }
+                    
+                    VStack(spacing: 0) {
                         HStack(spacing: 8) {
-                            Image(systemName: "globe")
+                            Image(systemName: "textformat.abc.dottedunderline")
+                                .foregroundStyle(Color(.black))
+                                .font(.system(size: 15))
+                                .frame(width: 25)
+                            
+                            TextField("Name", text: $datas.name)
+                                .foregroundStyle(Color(.black))
+                                .font(.system(size: 16))
+                                .multilineTextAlignment(.leading)
+                                .focused($isKeyboardFocused)
+                            
+                            Spacer()
+                            
+                        }
+                        .frame(height: 40)
+                        
+                        Divider()
+                        
+                        HStack(spacing: 8) {
+                            Image(systemName: "textformat.abc.dottedunderline")
+                                .foregroundStyle(Color(.black))
+                                .font(.system(size: 15))
+                                .frame(width: 25)
+                            
+                            TextField("Surname", text: $datas.surname)
+                                .foregroundStyle(Color(.black))
+                                .font(.system(size: 16))
+                                .multilineTextAlignment(.leading)
+                                .focused($isKeyboardFocused)
+                            
+                            Spacer()
+                            
+                        }
+                        .frame(height: 40)
+                        
+                        Divider()
+                        
+                        HStack(spacing: 8) {
+                            Image(systemName: "123.rectangle")
                                 .foregroundStyle(Color(.black))
                                 .font(.system(size: 16))
                                 .frame(width: 25)
                             
-                            Text("Language")
+                            Text("+998")
+                                .foregroundStyle(Color(.black))
+                                .font(.system(size: 15))
+                            
+                            TextField("33 111 11 11", text: $datas.phone)
                                 .foregroundStyle(Color(.black))
                                 .font(.system(size: 16))
-                            
+                                .multilineTextAlignment(.leading)
+                                .keyboardType(.numberPad)
+                                .focused($isKeyboardFocused)
+                                .onChange(of: datas.phone) { Value in
+                                    if !datas.phone.isEmpty {
+                                        datas.phone = datas.phone.formatPhoneNumber()
+                                    }
+                                }
                             Spacer()
                             
-                            Image(systemName: "chevron.right")
-                                .foregroundStyle(Color(.systemGray))
-                                .font(.system(size: 16))
                         }
+                        .frame(height: 40)
+                        
+                        Divider()
+                        
+                        Button {
+                            isDatePickerPresented.toggle()
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image(systemName: "calendar.badge.clock")
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                
+                                Text("Date of birth")
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(Color(.systemGray))
+                                    .font(.system(size: 16))
+                            }
+                        }
+                        .frame(height: 40)
                     }
-                    .frame(height: 40)
-                     
-                    Divider()
-                    
-                    Button {
-                        withAnimation {
-                            datas.view = "auth"
-                        }
-                    } label: {
-                        HStack(spacing: 8) {
-                            Image(systemName: "rectangle.portrait.and.arrow.right")
-                                .foregroundStyle(Color(.black))
-                                .font(.system(size: 16))
-                                .frame(width: 25)
-                            
-                            Text("Exit")
-                                .foregroundStyle(Color(.black))
-                                .font(.system(size: 16))
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                                .foregroundStyle(Color(.systemGray))
-                                .font(.system(size: 16))
-                        }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(.white)
+                    .cornerRadius(16)
+                    .shadow(color: Color(.black).opacity(0.3),radius: 5)
+                    .padding(.horizontal, 40)
+                    .padding(.top, 20)
+                    .onTapGesture {
+                        hideKeyboard()
                     }
-                    .frame(height: 40)
                     
+                    VStack(spacing: 0) {
+                        Button {
+                            
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image("telegramIcon")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 20)
+                                
+                                Text("Telegram")
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(Color(.systemGray))
+                                    .font(.system(size: 16))
+                            }
+                        }
+                        .frame(height: 40)
+                        
+                        Divider()
+                        
+                        Button {
+                            
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image("instagramIcon")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 20)
+                                
+                                Text("Instagram")
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(Color(.systemGray))
+                                    .font(.system(size: 16))
+                            }
+                        }
+                        .frame(height: 40)
+                        
+                        Divider()
+                        
+                        Button {
+                            
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image("facebookIcon")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 20)
+                                
+                                Text("Facebook")
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(Color(.systemGray))
+                                    .font(.system(size: 16))
+                            }
+                        }
+                        .frame(height: 40)
+                        
+                        Divider()
+                        
+                        Button {
+                            
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image(systemName: "message.badge.filled.fill")
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                
+                                Text("Support")
+                                    .foregroundStyle(Color(.black))
+                                    .font(.system(size: 16))
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .foregroundStyle(Color(.systemGray))
+                                    .font(.system(size: 16))
+                            }
+                        }
+                        .frame(height: 40)
+                        
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(.white)
+                    .cornerRadius(16)
+                    .shadow(color: Color(.black).opacity(0.3),radius: 5)
+                    .padding(.horizontal, 40)
+                    .padding(.top, 20)
+                    .onTapGesture {
+                        hideKeyboard()
+                    }
+                    
+                    Spacer()
                 }
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
-                .background(.white)
-                .cornerRadius(16)
-                .shadow(color: Color(.black).opacity(0.3),radius: 5)
-                .padding(.horizontal, 40)
-                .padding(.top, 30)
-                
-                VStack(spacing: 0) {
-                    HStack(spacing: 8) {
-                        Image(systemName: "textformat.abc.dottedunderline")
-                            .foregroundStyle(Color(.black))
-                            .font(.system(size: 15))
-                            .frame(width: 25)
-                        
-                        TextField("Name", text: $datas.name)
-                            .foregroundStyle(Color(.black))
-                            .font(.system(size: 16))
-                            .multilineTextAlignment(.leading)
-                        
-                        Spacer()
-                        
-                    }
-                    .frame(height: 40)
-                     
-                    Divider()
-                    
-                    HStack(spacing: 8) {
-                        Image(systemName: "textformat.abc.dottedunderline")
-                            .foregroundStyle(Color(.black))
-                            .font(.system(size: 15))
-                            .frame(width: 25)
-                        
-                        TextField("Surname", text: $datas.surname)
-                            .foregroundStyle(Color(.black))
-                            .font(.system(size: 16))
-                            .multilineTextAlignment(.leading)
-                        
-                        Spacer()
-                        
-                    }
-                    .frame(height: 40)
-                    
-                    Divider()
-                    
-                    HStack(spacing: 8) {
-                        Image(systemName: "123.rectangle")
-                            .foregroundStyle(Color(.black))
-                            .font(.system(size: 16))
-                            .frame(width: 25)
-                        
-                        Text("+998")
-                            .foregroundStyle(Color(.black))
-                            .font(.system(size: 15))
-                        
-                        TextField("33 111 11 11", text: $datas.phone)
-                            .foregroundStyle(Color(.black))
-                            .font(.system(size: 16))
-                            .multilineTextAlignment(.leading)
-                            .keyboardType(.numberPad)
-                        
-                        Spacer()
-                        
-                    }
-                    .frame(height: 40)
-                    
-                    Divider()
-                    
-                    Button {
-                        isDatePickerPresented.toggle()
-                    } label: {
-                        HStack(spacing: 8) {
-                            Image(systemName: "calendar.badge.clock")
-                                .foregroundStyle(Color(.black))
-                                .font(.system(size: 16))
-                            
-                            Text("Date of birth")
-                                .foregroundStyle(Color(.black))
-                                .font(.system(size: 16))
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                                .foregroundStyle(Color(.systemGray))
-                                .font(.system(size: 16))
-                        }
-                    }
-                    .frame(height: 40)
-                }
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
-                .background(.white)
-                .cornerRadius(16)
-                .shadow(color: Color(.black).opacity(0.3),radius: 5)
-                .padding(.horizontal, 40)
-                .padding(.top, 20)
-                
-                VStack(spacing: 0) {
-                    Button {
-                        
-                    } label: {
-                        HStack(spacing: 8) {
-                            Image("telegramIcon")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 20)
-                            
-                            Text("Telegram")
-                                .foregroundStyle(Color(.black))
-                                .font(.system(size: 16))
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                                .foregroundStyle(Color(.systemGray))
-                                .font(.system(size: 16))
-                        }
-                    }
-                    .frame(height: 40)
-                     
-                    Divider()
-                    
-                    Button {
-                        
-                    } label: {
-                        HStack(spacing: 8) {
-                            Image("instagramIcon")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 20)
-                            
-                            Text("Instagram")
-                                .foregroundStyle(Color(.black))
-                                .font(.system(size: 16))
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                                .foregroundStyle(Color(.systemGray))
-                                .font(.system(size: 16))
-                        }
-                    }
-                    .frame(height: 40)
-                     
-                    Divider()
-                    
-                    Button {
-                        
-                    } label: {
-                        HStack(spacing: 8) {
-                            Image("facebookIcon")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 20)
-                            
-                            Text("Facebook")
-                                .foregroundStyle(Color(.black))
-                                .font(.system(size: 16))
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                                .foregroundStyle(Color(.systemGray))
-                                .font(.system(size: 16))
-                        }
-                    }
-                    .frame(height: 40)
-                     
-                    Divider()
-                    
-                    Button {
-                        
-                    } label: {
-                        HStack(spacing: 8) {
-                            Image(systemName: "message.badge.filled.fill")
-                                .foregroundStyle(Color(.black))
-                                .font(.system(size: 16))
-                            
-                            Text("Support")
-                                .foregroundStyle(Color(.black))
-                                .font(.system(size: 16))
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                                .foregroundStyle(Color(.systemGray))
-                                .font(.system(size: 16))
-                        }
-                    }
-                    .frame(height: 40)
-                    
-                }
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
-                .background(.white)
-                .cornerRadius(16)
-                .shadow(color: Color(.black).opacity(0.3),radius: 5)
-                .padding(.horizontal, 40)
-                .padding(.top, 20)
-                
-                Spacer()
             }
         }
-//        .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
+        //        .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
         
         //Date Picker Sheet
         .sheet(isPresented: $isDatePickerPresented) {
