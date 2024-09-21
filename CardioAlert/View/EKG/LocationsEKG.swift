@@ -71,7 +71,6 @@ struct LocationsEKG: View {
                                     .clipShape(Circle())
                                     .shadow(color: Color(.black).opacity(0.3), radius: 2, y: 1)
                                 }
-                                //                                    .shadow(color: Color.black.opacity(0.32), radius: 5, y: 5)
                                 
                             }
                             HStack {
@@ -83,6 +82,22 @@ struct LocationsEKG: View {
                                     .foregroundColor(Color(.black))
                             }
                             
+                            Button {
+                                
+                            } label: {
+                                HStack {
+                                    Spacer()
+                                    
+                                    Text("Book")
+                                        .foregroundColor(Color(.black))
+                                    
+                                    Spacer()
+                                }
+                                .frame(height: 50)
+                                .background(Color(.systemGray5))
+                                .cornerRadius(12)
+                                .padding(.top, 8)
+                            }
                         }
                         .padding(12)
                         .background(.white)
@@ -111,7 +126,7 @@ struct LocationsEKG: View {
                     
                     Spacer()
                     
-                    Text("locationsTitle")
+                    Text("locationsTitle".localized(language))
                         .foregroundStyle(Color(.white))
                         .font(.system(size: 16))
                     

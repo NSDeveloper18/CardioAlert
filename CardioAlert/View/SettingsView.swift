@@ -324,7 +324,6 @@ struct SettingsView: View {
                 }
             }
         }
-        //        .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
         
         //Date Picker Sheet
         .sheet(isPresented: $isDatePickerPresented) {

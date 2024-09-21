@@ -161,8 +161,15 @@ struct AuthView: View {
                     Spacer()
                     Button(action: {
                         // Login action
-                        withAnimation {
-                            datas.view = "home"
+                        if email == "doctor" && password == "doctor" {
+                            withAnimation {
+                                datas.view = "docHome"
+                            }
+                        }
+                        else {
+                            withAnimation {
+                                datas.view = "home"
+                            }
                         }
                     }) {
                         HStack {

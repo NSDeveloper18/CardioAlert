@@ -16,6 +16,12 @@ struct ViewController: View {
             case "home": HomeView()
             case "settings": SettingsView()
             case "ecg": HomeECGView()
+            case "exo": HomeEXOView()
+            case "cvd": HomeCVDView()
+            case "cardio": HomeCardioView()
+            case "docHome": HomeDocView()
+            case "sendAnalyze": SendAnalyzeView()
+            case "patients": PatientsView()
             case "checkEcg": SelfCheckECGView()
             case "locations": LocationsEKG()
                 

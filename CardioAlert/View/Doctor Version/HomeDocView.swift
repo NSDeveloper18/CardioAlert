@@ -1,30 +1,27 @@
 //
-//  HomeView.swift
+//  HomeDocView.swift
 //  CardioAlert
 //
-//  Created by Shakhzod Botirov on 21/09/24.
+//  Created by Shakhzod Botirov on 22/09/24.
 //
 
 import SwiftUI
 import CoreLocation
 import Network
 
-struct HomeView: View {
+struct HomeDocView: View {
     @ObservedObject var datas: DataShared = .shared
     @State private var currentIndex = 1
     @State private var tappedIndex: Int? = nil
     @State var testViewTap = false
-    @State var onCoding = false
     private let manager = CLLocationManager()
     let monitor = NWPathMonitor()
     let queue = DispatchQueue(label: "Monitor")
     private var language = LocalizationService.shared.language
     var body: some View {
         let items = [
-            Item(img: "cvdIcon", txt: "CVD AI", view: "cvd"),
-            Item(img: "ecgIcon", txt: "ECG-AI", view: "ecg"),
-            Item(img: "exoIcon", txt: "EXO Cardio", view: "exo"),
-            Item(img: "cardioIcon", txt: "CardioMegalia", view: "cardio"),
+            Item(img: "cvdIcon", txt: "Send analyze", view: "sendAnalyze"),
+            Item(img: "listPatientsLogo", txt: "List of patients", view: "patients"),
             Item(img: "settings", txt: "Settings", view: "settings"),
         ]
         ZStack {
@@ -46,26 +43,12 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                Text("this_is_test".localized(language))
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color(hex: "880808"))
-                    .fontWeight(.semibold)
-                    .padding(.horizontal)
-                    .offset(y: 20)
-                
-                Spacer()
-                
                 CardStack(items, currentIndex: $currentIndex) { namedItems in
                     Button {
-                        if namedItems.view == "ecg" || namedItems.view == "settings" {
-                            withAnimation {
-                                datas.view = namedItems.view
-                            }
+                        withAnimation {
+                            datas.view = namedItems.view
                         }
-                        else {
-                            onCoding.toggle()
-                        }
-                       
+                        
                     } label: {
                         ZStack {
                             RoundedRectangle(cornerRadius: 20)
@@ -98,13 +81,10 @@ struct HomeView: View {
                     .alert("check_internet_connection".localized(language), isPresented: $datas.showConnection) {
                         Button("ok".localized(language), role: .cancel, action: {   })
                     }
-                    .alert("Under development".localized(language), isPresented: $onCoding) {
-                        Button("ok".localized(language), role: .cancel, action: {   })
-                    }
                 
             }
             // .padding(.horizontal)
-//            .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
+            //            .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
         }
         .onAppear()  {
             monitor.pathUpdateHandler = { [self] path in
@@ -128,5 +108,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeDocView()
 }
