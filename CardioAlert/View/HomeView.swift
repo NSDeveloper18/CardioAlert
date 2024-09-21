@@ -20,10 +20,10 @@ struct HomeView: View {
     private var language = LocalizationService.shared.language
     var body: some View {
         let items = [
-            Item(img: "settings1", txt: "CVD AI", view: "cvd"),
-            Item(img: "settings2", txt: "ECG-AI", view: "ecg"),
-            Item(img: "settings4", txt: "EXO Cardio", view: "exo"),
-            Item(img: "settings3", txt: "CardioMegalia", view: "cardio"),
+            Item(img: "cvdIcon", txt: "CVD AI", view: "cvd"),
+            Item(img: "ecgIcon", txt: "ECG-AI", view: "ecg"),
+            Item(img: "exoIcon", txt: "EXO Cardio", view: "exo"),
+            Item(img: "cardioIcon", txt: "CardioMegalia", view: "cardio"),
             Item(img: "settings", txt: "Settings", view: "settings"),
         ]
         VStack {
@@ -108,7 +108,7 @@ struct HomeView: View {
             
         }
         // .padding(.horizontal)
-        .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#f68e4b"), Color(hex: "f87b6f"), Color(hex: "#c74154")]), startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
         .onAppear()  {
             //                data.gender = 2
             //                data.polyuria = 2
@@ -154,28 +154,6 @@ struct HomeView: View {
                 }
             }
             monitor.start(queue: queue)
-            
-            DispatchQueue.global().async {
-                if CLLocationManager.locationServicesEnabled() {
-                    switch manager.authorizationStatus {
-                    case .notDetermined, .restricted, .denied:
-                        DispatchQueue.main.async { [self] in
-                            datas.forTPMI = false
-                        }
-                    case .authorizedAlways, .authorizedWhenInUse:
-                        DispatchQueue.main.async { [self] in
-                            datas.forTPMI = true
-                        }
-                    @unknown default:
-                        break
-                    }
-                }
-                else {
-                    DispatchQueue.main.async { [self] in
-                        datas.forTPMI = false
-                    }
-                }
-            }
         }
         
     }

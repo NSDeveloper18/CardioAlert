@@ -8,7 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		2E0EBF922C9E838500E04571 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2E0EBF902C9E838500E04571 /* Localizable.strings */; };
+		2EAD8C7B2C9EE1FC003E74F1 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2EAD8C7A2C9EE1FC003E74F1 /* Lottie */; };
+		2EAD8CC32C9EE59D003E74F1 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2EAD8CC22C9EE59D003E74F1 /* Alamofire */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2EAD8CC02C9EE4F5003E74F1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2E0EBF7A2C9E81CC00E04571 /* CardioAlert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardioAlert.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -17,9 +32,22 @@
 		2E0EBF952C9E83EE00E04571 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2EAD8CC52C9EE8C7003E74F1 /* Exceptions for "CardioAlert" folder in "CardioAlert" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2E0EBF792C9E81CC00E04571 /* CardioAlert */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2E0EBF7C2C9E81CC00E04571 /* CardioAlert */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2EAD8CC52C9EE8C7003E74F1 /* Exceptions for "CardioAlert" folder in "CardioAlert" target */,
+			);
 			path = CardioAlert;
 			sourceTree = "<group>";
 		};
@@ -30,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EAD8C7B2C9EE1FC003E74F1 /* Lottie in Frameworks */,
+				2EAD8CC32C9EE59D003E74F1 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +93,7 @@
 				2E0EBF762C9E81CC00E04571 /* Sources */,
 				2E0EBF772C9E81CC00E04571 /* Frameworks */,
 				2E0EBF782C9E81CC00E04571 /* Resources */,
+				2EAD8CC02C9EE4F5003E74F1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -73,6 +104,8 @@
 			);
 			name = CardioAlert;
 			packageProductDependencies = (
+				2EAD8C7A2C9EE1FC003E74F1 /* Lottie */,
+				2EAD8CC22C9EE59D003E74F1 /* Alamofire */,
 			);
 			productName = CardioAlert;
 			productReference = 2E0EBF7A2C9E81CC00E04571 /* CardioAlert.app */;
@@ -104,6 +137,10 @@
 			);
 			mainGroup = 2E0EBF712C9E81CC00E04571;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2EAD8C792C9EE1FC003E74F1 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				2EAD8CC12C9EE59D003E74F1 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2E0EBF7B2C9E81CC00E04571 /* Products */;
 			projectDirPath = "";
@@ -276,8 +313,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CardioAlert/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CardioAlert;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Разрешите доступ к вашему местоположению, чтобы показать ближайшие медицинские центры.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -318,8 +357,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CardioAlert/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CardioAlert;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.medical";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Разрешите доступ к вашему местоположению, чтобы показать ближайшие медицинские центры.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -369,6 +410,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2EAD8C792C9EE1FC003E74F1 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+		2EAD8CC12C9EE59D003E74F1 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2EAD8C7A2C9EE1FC003E74F1 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EAD8C792C9EE1FC003E74F1 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+		2EAD8CC22C9EE59D003E74F1 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EAD8CC12C9EE59D003E74F1 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2E0EBF722C9E81CC00E04571 /* Project object */;
 }

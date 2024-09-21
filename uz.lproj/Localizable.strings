@@ -18,6 +18,7 @@
 "signIn" = "Kirish";
 "signUp" = "Ro'yhatdan o'tish";
 "this_is_test" = "Ushbu test to'liq tashxis emas. Natijalar faqat ma'lumot olish uchun mo'ljallangan va malakali tibbiy tashxisni tashkil etmaydi.\nAniq tashxislar uchun shifokor bilan maslahatlashishingiz kerak!";
+"upload_real_photo_ecg_9" = "1. 9-sinf yurak kasalliklarini tashxislash uchun EKG tasvirlarining tasnifi.\n2. 88% aniqlik bilan kompyuterni ko'rish usuli qo'llaniladi.\n3. EKG tasvirini yuklang va natijani oling.";
 "" = "";
 "" = "";
 "" = "";
@@ -25,3 +26,22 @@
 "" = "";
 "" = "";
 "" = "";
+
+//MARK: Response ECG9
+"class-0" = "Q bo'lmagan old yon devor infarkti";
+"class-1" = "Norma";
+"class-2" = "Q bilan orqa devor infarkt";
+"class-3" = "O'ng oyoq bloki PG";
+"class-4" = "Q holda oldingi septal infarkt";
+"class-5" = "Q bo'lmagan orqa devor infarkti";
+"class-6" = "Q holda oldingi infarkt";
+"class-7" = "Chap oyoq bloki";
+"class-8" = "Q bilan oldingi septal infarkt";
+
+//ECG 9
+"ecg_9_about_title" = "9-SINF YURAK XASTALIGI DIGANOSTIKASI UCHUN EKG RASMLARINI TASNIFLASH";
+"ecg_9_about" = "Elektrokardiografiya (EKG) — bu yurakning elektr faolligini qayd etish uchun ishlatiladigan invaziv bo'lmagan diagnostika usuli. U bemorning terisiga biriktirilgan elektrodlar yordamida amalga oshiriladi, ular yurak mushagi qisqarishi va bo'shashishi paytida hosil bo'lgan elektr signallarini tuzatadi. Ushbu signallar yurak faoliyatini baholashga imkon beradigan grafik (elektrokardiogramma) shaklida ko'rsatiladi.";
+"ecg_9_shows_title" = "EKG ko'rsatkichlari:";
+"ecg_9_shows" = "1. Yurak-qon tomir kasalliklari diagnostikasi:\n- Koronar arteriya kasalligi, shu jumladan miokard infarkti.\n- Angina pektorisi.\n- Miyokardit va perikardit.\n- Kardiyomiyopatiyalar.\n\n2. Aritmiyaga shubha qilinganida holatni baholash:\n- Atriyal va qorincha ekstrasistoliyasi.\n- Atriyal fibrilatsiya va chayqalish.\n- Paroksismal taxikardiya.\n- Yurak bloklari.\n\n3. Yurak kasalliklari va jarrohlik aralashuvlaridan keyin holatni kuzatish:\n- Miyokard infarktidan keyin.\n- Yurak operatsiyalaridan keyin.\n\n4. Terapiya samaradorligini baholash:\n- Antiaritmik dorilarni qabul qilish.\n- Arterial gipertenziya va boshqa yurak kasalliklarini davolashni nazorat qilish.\n\n5. Profilaktik tekshiruvlar:\n- Xavf omillari bo'lgan bemorlarda (gipertoniya, diabet, irsiylik).\n- Tibbiy ko'riklar doirasida.";
+"ecg_9_contraindications_title" = "EKGga qarshi ko'rsatmalar:";
+"ecg_9_contraindications" = "EKG xavfsiz protsedura bo'lib, mutlaq kontrendikatsiyaga ega emas. Biroq, ba'zi hollarda tadqiqot o'tkazish yoki natijalarni talqin qilishda qiyinchiliklar bo'lishi mumkin:\n\n1. Texnik qiyinchiliklar:\n- Elektrodlarni qo'llash joylarida teri kasalliklari yoki shikastlanishlar (masalan, kuyish, og'ir ekzema).\n- Kuchli semirish, bu elektrodlarni qo'llashni qiyinlashtirishi mumkin.\n\n2. Ruhiy holatlar:\n- Bemorning nazoratsiz xatti-harakati, kuchli qo'zg'alish yoki qo'rquv.\n\nEKG kardiologiyada turli xil yurak kasalliklarini dastlabki bosqichlarida aniqlash va davolashni nazorat qilish imkonini beruvchi muhim vositadir.";

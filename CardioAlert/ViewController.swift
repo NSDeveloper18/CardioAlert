@@ -14,7 +14,9 @@ struct ViewController: View {
             switch datas.view {
             case "auth": AuthView()
             case "home": HomeView()
-                
+            case "settings": SettingsView()
+            case "ecg": HomeECGView()
+            case "checkEcg": SelfCheckECGView()
                 
             default: AuthView()
             }

@@ -104,7 +104,7 @@ struct AuthView: View {
                 .padding(.horizontal, 16)
             }
         }
-        .background(LinearGradient(gradient: Gradient(colors: [Color(hex: "#f68e4b"), Color(hex: "f87b6f"), Color(hex: "#c74154")]), startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
         .onTapGesture {
             hideKeyboard()
         }
