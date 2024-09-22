@@ -20,14 +20,41 @@
 "this_is_test" = "Ushbu test to'liq tashxis emas. Natijalar faqat ma'lumot olish uchun mo'ljallangan va malakali tibbiy tashxisni tashkil etmaydi.\nAniq tashxislar uchun shifokor bilan maslahatlashishingiz kerak!";
 "upload_real_photo_ecg_9" = "1. 9-sinf yurak kasalliklarini tashxislash uchun EKG tasvirlarining tasnifi.\n2. 88% aniqlik bilan kompyuterni ko'rish usuli qo'llaniladi.\n3. EKG tasvirini yuklang va natijani oling.";
 
+//MARK: Home EKG View
+"upload_photo" = "Misol uchun foto:";
+"selected_photo" = "Tanlangan foto:";
+"select_photo" = "Fotoni tanlang";
+"about_ekg_title9" = "EKG haqida";
+"please_select_photo" = "Iltimos, fotoni tanlang";
+"result_of_photo" = "Foto natijalariga asoslanib:";
+"get_result" = "Natijani olish";
+"answer_all_questions" = "Iltimos, barcha savollarga javob bering!";
+"change" = "O'zgartirish";
+"select" = "Tanlash";
+
+
 //MARK: Source View
 "source" = "Manba";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+
+"sendAnalyze" = "Tahlil yuborish";
+"listPatients" = "Bemorlar ro‘yxati";
+"ok" = "Ok";
+"call" = "Qo‘ng‘iroq qilish";
+"patients" = "Bemorlar";
+"check_internet_connection" = "Iltimos, internet aloqasini tekshiring";
+"name" = "Ism";
+"surname" = "Familiya";
+"resultAnalyze" = "Tahlil natijasi";
+"comment" = "Izoh";
+"dateBirth" = "Tug‘ilgan sana";
+"cancel" = "Bekor qilish";
+"done" = "Tayyor";
+"developing" = "Rivojlantirilmoqda";
+"language" = "Til";
+"exit" = "Chiqish";
+"book" = "Bron qilish";
+"booking" = "Bron qilish";
+"selfCheck" = "O'z-o'zini tekshirish";
 
 //MARK: Location View
 "locationsTitle" = "Markazlar";

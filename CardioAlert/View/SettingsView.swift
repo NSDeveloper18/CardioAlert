@@ -67,7 +67,7 @@ struct SettingsView: View {
                                     .font(.system(size: 16))
                                     .frame(width: 25)
                                 
-                                Text("Language")
+                                Text("language".localized(language))
                                     .foregroundStyle(Color(.black))
                                     .font(.system(size: 16))
                                 
@@ -93,7 +93,7 @@ struct SettingsView: View {
                                     .font(.system(size: 16))
                                     .frame(width: 25)
                                 
-                                Text("Exit")
+                                Text("exit".localized(language))
                                     .foregroundStyle(Color(.black))
                                     .font(.system(size: 16))
                                 
@@ -125,7 +125,7 @@ struct SettingsView: View {
                                 .font(.system(size: 15))
                                 .frame(width: 25)
                             
-                            TextField("Name", text: $datas.name)
+                            TextField("name".localized(language), text: $datas.name)
                                 .foregroundStyle(Color(.black))
                                 .font(.system(size: 16))
                                 .multilineTextAlignment(.leading)
@@ -144,7 +144,7 @@ struct SettingsView: View {
                                 .font(.system(size: 15))
                                 .frame(width: 25)
                             
-                            TextField("Surname", text: $datas.surname)
+                            TextField("surname".localized(language), text: $datas.surname)
                                 .foregroundStyle(Color(.black))
                                 .font(.system(size: 16))
                                 .multilineTextAlignment(.leading)
@@ -193,7 +193,7 @@ struct SettingsView: View {
                                     .foregroundStyle(Color(.black))
                                     .font(.system(size: 16))
                                 
-                                Text("Date of birth")
+                                Text("dateBirth".localized(language))
                                     .foregroundStyle(Color(.black))
                                     .font(.system(size: 16))
                                 
@@ -340,7 +340,7 @@ struct SettingsView: View {
                         
                         Spacer()
                         
-                        Text("birthDate".localized(language))
+                        Text("dateBirth".localized(language))
                             .font(.system(size: 17).weight(.semibold))
                         
                         Spacer()
@@ -377,7 +377,7 @@ struct SettingsView: View {
                         
                         Spacer()
                         
-                        Text("birthDate".localized(language))
+                        Text("dateBirth".localized(language))
                             .font(.system(size: 17).weight(.semibold))
                         
                         Spacer()
@@ -410,3 +410,4 @@ struct SettingsView: View {
 #Preview {
     SettingsView()
 }
+

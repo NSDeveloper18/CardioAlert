@@ -74,7 +74,7 @@ struct HomeECGView: View {
                                 .font(.system(size: 16))
                                 .frame(width: 25)
                             
-                            Text("Self checking")
+                            Text("selfCheck".localized(language))
                                 .foregroundStyle(Color(.black))
                                 .font(.system(size: 16))
                             
@@ -109,7 +109,7 @@ struct HomeECGView: View {
                                 .font(.system(size: 16))
                                 .frame(width: 25)
                             
-                            Text("Booking")
+                            Text("booking".localized(language))
                                 .foregroundStyle(Color(.black))
                                 .font(.system(size: 16))
                             
@@ -134,7 +134,6 @@ struct HomeECGView: View {
                 
             }
         }
-//        .background(LinearGradient(gradient: Gradient(colors: [Color("gradient1"), Color("gradient2"), Color("gradient3")]), startPoint: .top, endPoint: .bottom))
     }
 }
 

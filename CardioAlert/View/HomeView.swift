@@ -25,7 +25,7 @@ struct HomeView: View {
             Item(img: "ecgIcon", txt: "ECG-AI", view: "ecg"),
             Item(img: "exoIcon", txt: "EXO Cardio", view: "exo"),
             Item(img: "cardioIcon", txt: "CardioMegalia", view: "cardio"),
-            Item(img: "settings", txt: "Settings", view: "settings"),
+            Item(img: "settings", txt: "settings", view: "settings"),
         ]
         ZStack {
             Image("settingsBack")
@@ -98,7 +98,7 @@ struct HomeView: View {
                     .alert("check_internet_connection".localized(language), isPresented: $datas.showConnection) {
                         Button("ok".localized(language), role: .cancel, action: {   })
                     }
-                    .alert("Under development".localized(language), isPresented: $onCoding) {
+                    .alert("developing".localized(language), isPresented: $onCoding) {
                         Button("ok".localized(language), role: .cancel, action: {   })
                     }
                 

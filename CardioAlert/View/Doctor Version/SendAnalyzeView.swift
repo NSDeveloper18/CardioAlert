@@ -50,7 +50,7 @@ struct SendAnalyzeView: View {
                     
                     Spacer()
                     
-                    Text("Send analyze".localized(language))
+                    Text("sendAnalyze".localized(language))
                         .foregroundStyle(Color(.white))
                         .font(.system(size: 20).weight(.semibold))
                     
@@ -72,7 +72,7 @@ struct SendAnalyzeView: View {
                             .font(.system(size: 15))
                             .frame(width: 25)
                         
-                        TextField("Name", text: $name)
+                        TextField("name".localized(language), text: $name)
                             .foregroundStyle(Color(.black))
                             .font(.system(size: 16))
                             .multilineTextAlignment(.leading)
@@ -91,7 +91,7 @@ struct SendAnalyzeView: View {
                             .font(.system(size: 15))
                             .frame(width: 25)
                         
-                        TextField("Surname", text: $surname)
+                        TextField("surname".localized(language), text: $surname)
                             .foregroundStyle(Color(.black))
                             .font(.system(size: 16))
                             .multilineTextAlignment(.leading)
@@ -138,7 +138,7 @@ struct SendAnalyzeView: View {
                             .font(.system(size: 16))
                             .frame(width: 25)
                         
-                        TextField("Result of analyze", text: $result)
+                        TextField("resultAnalyze".localized(language), text: $result)
                             .foregroundStyle(Color(.black))
                             .font(.system(size: 16))
                             .multilineTextAlignment(.leading)
@@ -157,7 +157,7 @@ struct SendAnalyzeView: View {
                             .font(.system(size: 16))
                             .frame(width: 25)
                         
-                        TextField("Comment", text: $comment)
+                        TextField("comment".localized(language), text: $comment)
                             .foregroundStyle(Color(.black))
                             .font(.system(size: 16))
                             .multilineTextAlignment(.leading)
@@ -177,7 +177,7 @@ struct SendAnalyzeView: View {
                                 .foregroundStyle(Color(.black))
                                 .font(.system(size: 16))
                             
-                            Text("Date of birth")
+                            Text("dateBirth".localized(language))
                                 .foregroundStyle(Color(.black))
                                 .font(.system(size: 16))
                             
@@ -256,7 +256,7 @@ struct SendAnalyzeView: View {
                         
                     } label: {
                         HStack {
-                            Text("Send analyze")
+                            Text("sendAnalyze".localized(language))
                                 .foregroundStyle(Color(.black))
                                 .font(.system(size: 16).weight(.semibold))
                             
@@ -306,7 +306,7 @@ struct SendAnalyzeView: View {
                         
                         Spacer()
                         
-                        Text("birthDate".localized(language))
+                        Text("dateBirth".localized(language))
                             .font(.system(size: 17).weight(.semibold))
                         
                         Spacer()
@@ -343,7 +343,7 @@ struct SendAnalyzeView: View {
                         
                         Spacer()
                         
-                        Text("birthDate".localized(language))
+                        Text("dateBirth".localized(language))
                             .font(.system(size: 17).weight(.semibold))
                         
                         Spacer()

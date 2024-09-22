@@ -20,8 +20,8 @@ struct HomeDocView: View {
     private var language = LocalizationService.shared.language
     var body: some View {
         let items = [
-            Item(img: "cvdIcon", txt: "Send analyze", view: "sendAnalyze"),
-            Item(img: "listPatientsLogo", txt: "List of patients", view: "patients"),
+            Item(img: "cvdIcon", txt: "sendAnalyze", view: "sendAnalyze"),
+            Item(img: "listPatientsLogo", txt: "listPatients", view: "patients"),
             Item(img: "settings", txt: "Settings", view: "settings"),
         ]
         ZStack {

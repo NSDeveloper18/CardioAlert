@@ -88,7 +88,7 @@ struct LocationsEKG: View {
                                 HStack {
                                     Spacer()
                                     
-                                    Text("Book")
+                                    Text("book".localized(language))
                                         .foregroundColor(Color(.black))
                                     
                                     Spacer()

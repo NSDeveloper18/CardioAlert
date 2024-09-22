@@ -9,8 +9,9 @@ import SwiftUI
 
 struct PatientsView: View {
     @ObservedObject var datas: DataShared = .shared
+    var language = LocalizationService.shared.language
     var patients = [
-        patientsModel(id: 1, name: "Rashod", surname: "Akramovich", phone_number: "+998909162868", date: "22.09.2024", time: "10:00"),
+        patientsModel(id: 1, name: "Rashod", surname: "Akramov", phone_number: "+998909162868", date: "22.09.2024", time: "10:00"),
         patientsModel(id: 2, name: "Bobomurod", surname: "Mamadaliev", phone_number: "+998949152508", date: "22.09.2024", time: "11:00"),
         patientsModel(id: 3, name: "Shakhzod", surname: "Botirov", phone_number: "+998938121318", date: "22.09.2024", time: "12:00"),
         patientsModel(id: 4, name: "Yulya", surname: "", phone_number: "+998909998877", date: "22.09.2024", time: "14:00"),
@@ -75,7 +76,7 @@ struct PatientsView: View {
                                 HStack {
                                     Spacer()
                                     
-                                    Text("Call")
+                                    Text("call".localized(language))
                                         .foregroundStyle(Color(.black))
                                         .font(.system(size: 17).weight(.semibold))
                                     

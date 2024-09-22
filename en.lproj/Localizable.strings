@@ -19,6 +19,7 @@
 "signUp" = "Sign up";
 "this_is_test" = "This test is not a comprehensive diagnosis. The results are for informational purposes only and do not constitute a qualified medical diagnosis. Consultation with a doctor is necessary for accurate recommendations.";
 "upload_real_photo_ecg_9" = "1. Classification of ECG images for the diagnosis of heart diseases of 9 classes.\n2. The computer vision method is used with an accuracy of 86%.\n3. Upload a photo of your ECG and get the result. ";
+
 //MARK: Home EKG View
 "upload_photo" = "Example photo:";
 "selected_photo" = "Selected photo:";
@@ -33,12 +34,27 @@
 
 //MARK: Source View
 "source" = "Source";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
+
+"sendAnalyze" = "Send analyze";
+"listPatients" = "List of patients";
+"ok" = "Ok";
+"call" = "Call";
+"patients" = "Patients";
+"check_internet_connection" = "Please check your internet connection";
+"name" = "Name";
+"surname" = "Surname";
+"resultAnalyze" = "Result of analyze";
+"comment" = "Comment";
+"dateBirth" = "Date of birth";
+"cancel" = "Cancel";
+"done" = "Done";
+"developing" = "Under development";
+"language" = "Language";
+"exit" = "Exit";
+"booking" = "Booking";
+"selfCheck" = "Self checking";
+"book" = "Book";
+
 
 //MARK: Location View
 "locationsTitle" = "Medical centers";
